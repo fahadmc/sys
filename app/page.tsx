@@ -87,6 +87,11 @@ export default function HomePage() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About SYS", href: "/about" },
+    { name: "Contact", href: "/Contact" },
+  ];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -99,6 +104,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
+
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -106,50 +112,43 @@ export default function HomePage() {
         className="bg-white shadow-lg sticky top-0 z-50"
       >
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-around">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-              <div className="flex flex-col items-center">
-               <Link href={"/"}>
-                  
-                  <img
-                src="/logo-text.png"
-                alt="SYS Logo"
-                className="w-64 h-12 mb-2"
-              />
-                  </Link>
-              </div>
+              <Link href="/">
+                <img
+                  src="/logo-text.png"
+                  alt="SYS Logo"
+                  className="w-64 h-12 mb-2"
+                />
+              </Link>
             </motion.div>
 
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-10">
-              {["Home", "About SYS", "Contact"].map((item, index) => {
-                let href = "#";
-                if (item === "About SYS") href = "/about";
-                else if (item === "Contact") href = "/Contact";
-                else if (item === "Home") href = "/";
-
-                return (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 * index }}
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                >
+                  <Link
+                    href={link.href}
+                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold"
                   >
-                    <Link
-                      href={href}
-                      className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold"
-                    >
-                      {item}
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
             </nav>
 
+            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               className="md:hidden"
@@ -158,6 +157,22 @@ export default function HomePage() {
               ☰
             </Button>
           </div>
+
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 space-y-2 bg-white shadow rounded-lg p-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-700 hover:text-blue-600 font-semibold"
+                  onClick={() => setIsMenuOpen(false)} // close menu on link click
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </motion.header>
 
@@ -216,13 +231,14 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Link rel="stylesheet" href="/about" >
-              <Button
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-              >
-                Learn More
-              </Button></Link>
+              <Link rel="stylesheet" href="/about">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+                >
+                  Learn More
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -499,7 +515,7 @@ export default function HomePage() {
                 ease: "linear",
               }}
               className="flex space-x-4"
-              style={{ width: `${organizations.length * 200}px` }}
+              // style={{ width: `${organizations.length * 200}px` }}
             >
               {[...organizations, ...organizations].map((org, index) => (
                 <motion.div
@@ -515,7 +531,7 @@ export default function HomePage() {
                   className="text-center flex-shrink-0 w-48"
                 >
                   <div className="bg-gray-100 rounded-lg p-4 mb-3 w-[180px] h-[180px] flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                    <Image
+                    <img
                       src={org.logo}
                       alt={org.name}
                       width={160}
@@ -548,13 +564,13 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="bg-gray-100 rounded-lg p-4 mb-3 w-6 h-7 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gray-100 rounded-lg p-4 mb-3  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
                   <Image
                     src={org.logo}
                     alt={org.name}
                     width={60}
                     height={60}
-                    className="mx-auto"
+                    className="mx-auto w-48 h-24"
                   />
                 </div>
                 <h4 className="font-semibold text-gray-800 text-sm">

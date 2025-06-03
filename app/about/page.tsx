@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const stats = [
   { number: "50+", label: "Years of Service", icon: Award },
@@ -66,58 +67,83 @@ const timeline = [
 
 export default function AboutPage() {
   const currentYear = new Date().getFullYear();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navLinks = [
+      { name: "Home", href: "/" },
+      { name: "About SYS", href: "/about" },
+      { name: "Contact", href: "/Contact" },
+    ];
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <motion.header
+           <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.8 }}
         className="bg-white shadow-lg sticky top-0 z-50"
       >
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-around">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-              <div className="flex flex-col items-center">
-                <Link href={"/"}>
-                  <img
-                    src="/logo-text.png"
-                    alt="SYS Logo"
-                    className="w-64 h-12 mb-2"
-                  />
-                </Link>
-              </div>
+              <Link href="/">
+                <img
+                  src="/logo-text.png"
+                  alt="SYS Logo"
+                  className="w-64 h-12 mb-2"
+                />
+              </Link>
             </motion.div>
 
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-10">
-              {["Home", "About SYS", "Contact"].map((item, index) => (
+              {navLinks.map((link, index) => (
                 <motion.div
-                  key={item}
+                  key={link.name}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                 >
                   <Link
-                    href={
-                      item === "Home"
-                        ? "/"
-                        : item === "About SYS"
-                        ? "/about"
-                        : "/Contact"
-                    }
+                    href={link.href}
                     className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold"
                   >
-                    {item}
+                    {link.name}
                   </Link>
                 </motion.div>
               ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              ☰
+            </Button>
           </div>
+
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 space-y-2 bg-white shadow rounded-lg p-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-700 hover:text-blue-600 font-semibold"
+                  onClick={() => setIsMenuOpen(false)} // close menu on link click
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </motion.header>
 
