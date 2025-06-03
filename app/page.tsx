@@ -1,0 +1,698 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Heart,
+  Users,
+  BookOpen,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import Link from "next/link";
+import image1 from "../public/bg_1.jpg";
+import image2 from "../public/bg_1.jpg";
+import image3 from "../public/bg_1.jpg";
+
+const slides = [
+  {
+    id: 1,
+    image: image1,
+    title: "SUNNI YUVAJANA SAMGAM",
+    subtitle: "Empowering Youth Through Unity",
+    description:
+      "Building a stronger community through education, charity, and social welfare",
+  },
+  {
+    id: 2,
+    image: image2,
+    title: "CHARITY & RELIEF",
+    subtitle: "Helping Those in Need",
+    description: "Our commitment to social welfare and community support",
+  },
+  {
+    id: 3,
+    image: image3,
+    title: "EDUCATION FIRST",
+    subtitle: "Knowledge for All",
+    description: "Promoting education and learning opportunities for everyone",
+  },
+];
+
+const services = [
+  {
+    icon: Heart,
+    title: "Charity and Relief Activities",
+    description:
+      "Supporting communities through various charitable initiatives and relief programs",
+  },
+  {
+    icon: Users,
+    title: "Santhwanam Volunteers",
+    description:
+      "Dedicated volunteers working together for social welfare and community development",
+  },
+  {
+    icon: BookOpen,
+    title: "Sunni Voice and Read Press",
+    description:
+      "Publishing and media services to spread knowledge and awareness",
+  },
+];
+
+const organizations = [
+  { name: "Read Press", logo: "/readpress.png" },
+  { name: "Santhwanam", logo: "/santhwanam.png" },
+  {
+    name: "Islamic Media Mission",
+    logo: "/imm.png",
+  },
+  { name: "Sunni Voice", logo: "/sunnivoice.png" },
+];
+
+export default function HomePage() {
+  const currentYear = new Date().getFullYear();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bg-white shadow-lg sticky top-0 z-50"
+      >
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-around">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex items-center space-x-2"
+            >
+              <div className="flex flex-col items-center">
+               <Link href={"/"}>
+                  
+                  <img
+                src="/logo-text.png"
+                alt="SYS Logo"
+                className="w-64 h-12 mb-2"
+              />
+                  </Link>
+              </div>
+            </motion.div>
+
+            <nav className="hidden md:flex space-x-10">
+              {["Home", "About SYS", "Contact"].map((item, index) => {
+                let href = "#";
+                if (item === "About SYS") href = "/about";
+                else if (item === "Contact") href = "/Contact";
+                else if (item === "Home") href = "/";
+
+                return (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                  >
+                    <Link
+                      href={href}
+                      className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold"
+                    >
+                      {item}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </nav>
+
+            <Button
+              variant="ghost"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              ☰
+            </Button>
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Hero Slider */}
+      <section className="relative h-[92vh] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl px-4">
+            <motion.h1
+              key={`title-${currentSlide}`}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold mb-4"
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
+            <motion.h2
+              key={`subtitle-${currentSlide}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl mb-6 text-blue-200"
+            >
+              {slides[currentSlide].subtitle}
+            </motion.h2>
+            <motion.p
+              key={`description-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg md:text-xl mb-8"
+            >
+              {slides[currentSlide].description}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <Link rel="stylesheet" href="/about" >
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+              >
+                Learn More
+              </Button></Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Slider Controls */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white"
+          onClick={prevSlide}
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white"
+          onClick={nextSlide}
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? "bg-white" : "bg-white/50"
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Announcement Banner */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-[#DC3545] mt-4 w-5/6 mx-auto justify-evenly text-white py-8"
+      >
+        <div className="container mx-auto px-4 text-center">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl font-semibold"
+          >
+            Ibana School Exam
+          </motion.h3>
+        </div>
+      </motion.section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+          >
+            Our Services
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 * index }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <Card className="group h-full transition-all duration-300 hover:bg-blue-500 hover:shadow-xl">
+                  <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                      className="mb-6"
+                    >
+                      <service.icon className="h-16 w-16 mx-auto text-gray-400 transition-colors duration-300 group-hover:text-white" />
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-white">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+              >
+                About Sunni Yuvajana Samgam
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-lg text-gray-600 mb-6 leading-relaxed"
+              >
+                Since 1970, Sunni Yuvajana Samgam has been at the forefront of
+                youth empowerment and community development. We believe in
+                creating positive change through education, social welfare, and
+                unity among diverse communities.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-lg text-gray-600 mb-8 leading-relaxed"
+              >
+                Our organization has touched thousands of lives through various
+                initiatives including educational programs, charitable
+                activities, and community outreach. We continue to work towards
+                building a harmonious society based on justice, equality, and
+                mutual respect.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="flex flex-wrap gap-4"
+              >
+                <Link href="/about">
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    Learn More About Us
+                  </Button>
+                </Link>
+                <Link href="/about">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  >
+                    Our Mission
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  <Image
+                    src="/hq720.jpg"
+                    alt="SYS Community Work"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                  <Image
+                    src="/sys-manava-sancharam2-400x225.jpg"
+                    alt="SYS Education Programs"
+                    width={300}
+                    height={300}
+                    className="rounded-lg shadow-lg"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4 pt-8"
+                >
+                  <Image
+                    src="/sys.jpg"
+                    alt="SYS Youth Activities"
+                    width={300}
+                    height={150}
+                    className="rounded-lg shadow-lg"
+                  />
+                  <Image
+                    src="/bg_1.jpg"
+                    alt="SYS Community Events"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Floating stats */}
+              {/* <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-gray-100"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">50+</div>
+                  <div className="text-sm text-gray-600">Years of Service</div>
+                </div>
+              </motion.div> */}
+
+              {/* <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                viewport={{ once: true }}
+                className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-6 border border-gray-100"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">10K+</div>
+                  <div className="text-sm text-gray-600">Lives Touched</div>
+                </div>
+              </motion.div> */}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Organizations Section */}
+      <section className="py-16 bg-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+          >
+            Our Organizations
+          </motion.h2>
+
+          {/* Auto-sliding Organizations Carousel - Desktop only */}
+          <div className="relative hidden md:block overflow-hidden">
+            <motion.div
+              animate={{ x: [0, -100 * organizations.length] }}
+              transition={{
+                duration: 10,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+              className="flex space-x-4"
+              style={{ width: `${organizations.length * 200}px` }}
+            >
+              {[...organizations, ...organizations].map((org, index) => (
+                <motion.div
+                  key={`${org.name}-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1 * (index % organizations.length),
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="text-center flex-shrink-0 w-48"
+                >
+                  <div className="bg-gray-100 rounded-lg p-4 mb-3 w-[180px] h-[180px] flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                    <Image
+                      src={org.logo}
+                      alt={org.name}
+                      width={160}
+                      height={160}
+                      className="object-contain w-[160px] h-[160px]"
+                    />
+                  </div>
+
+                  <h4 className="font-semibold text-gray-800 text-sm">
+                    {org.name}
+                  </h4>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Gradient overlays for smooth edges */}
+            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          </div>
+
+          {/* Static grid for mobile */}
+          <div className="md:hidden grid grid-cols-2 gap-6 mt-8">
+            {organizations.map((org, index) => (
+              <motion.div
+                key={`mobile-${org.name}-${index}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="text-center"
+              >
+                <div className="bg-gray-100 rounded-lg p-4 mb-3 w-6 h-7 hover:shadow-lg transition-all duration-300">
+                  <Image
+                    src={org.logo}
+                    alt={org.name}
+                    width={60}
+                    height={60}
+                    className="mx-auto"
+                  />
+                </div>
+                <h4 className="font-semibold text-gray-800 text-sm">
+                  {org.name}
+                </h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-bold mb-4">SYS Kerala</h3>
+              <p className="text-gray-400">
+                Sunni Yuvajana Samgam - Empowering youth through unity,
+                education, and social welfare.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/Contact"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg font-semibold mb-4">Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/Terms"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/Refund"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Refund Policy
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-4 w-4" />
+                  <span className="text-gray-400 text-sm">
+                    SYS STATE COMMITTEE, Samatha centre, Jaffarkhan colony,
+                    Eranhipalam po, Kozhikode
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <span className="text-gray-400">0495 2771538</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <span className="text-gray-400">statesys@gmail.com</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="border-t border-gray-800 mt-8 pt-8 text-center"
+          >
+            <p className="text-gray-400">
+              Copyright ©{currentYear} All rights reserved
+            </p>
+          </motion.div>
+        </div>
+      </footer>
+    </div>
+  );
+}
