@@ -52,12 +52,26 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-              <Link href="/">
-                <img
-                  src="/logo-text.png"
-                  alt="SYS Logo"
-                  className="w-64 h-12 mb-2"
-                />
+              <Link href="/" className=""style={{
+                display:"flex",
+                 alignItems:"center",
+                 gap:"15px",
+                 textDecoration:"none"
+              }}>
+                <h1 className=""style={{
+                  color: "#007AC2",
+                  fontFamily:"segoe UI",
+                  fontSize:"50px",
+                  margin:0,
+                  fontWeight:"bolder"
+                }}>SYS</h1>
+                <h2 className=""style={{
+                   color: "#003E5E",
+                   fontFamily: 'Segoe UI',
+                   fontSize:"34px",
+                   margin:0,
+                    fontWeight:"bolder"
+                }}>PATTAMBI</h2>
               </Link>
             </motion.div>
 

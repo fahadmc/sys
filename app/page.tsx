@@ -44,6 +44,27 @@ const slides = [
     description: "Promoting education and learning opportunities for everyone",
   },
 ];
+const gallery = [
+  { id: 1, image: "/gl-1.jpg" },
+  { id: 2, image: "/gl-2.jpg" },
+  { id: 3, image: "/gl-4.jpg" },
+];
+const team = [
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+   { name: "AP", logo: "/team-1.jpg"},
+  
+
+];
 
 const services = [
   {
@@ -120,12 +141,40 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-              <Link href="/">
-                <img
-                  src="/logo-text.png"
-                  alt="SYS Logo"
-                  className="w-64 h-12 mb-2"
-                />
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "50px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    color: "#003E5E",
+                    fontFamily: "Segoe UI",
+                    fontSize: "34px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
               </Link>
             </motion.div>
 
@@ -487,13 +536,176 @@ export default function HomePage() {
                   <div className="text-sm text-gray-600">Lives Touched</div>
                 </div>
               </motion.div> */}
+
+
+               
             </motion.div>
           </div>
         </div>
       </section>
 
+               {/* gallery */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+          >
+            Our Gallery
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {gallery.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 * index }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <Card className="group h-full transition-all duration-300 hover:bg-blue-100 hover:shadow-xl">
+                  <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
+                    <motion.div
+                     whileHover={{ scale: 1.05, y: -5 }}
+                      transition={{ duration: 0.3 }}
+                      className="mb-6"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={`Gallery image ${item.id}`}
+                        width={400}
+                        height={250}
+                      />
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          
+        </div>
+        <div className="flex justify-center mt-5">
+           <Link rel="stylesheet  justify-center" href="/about">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex justify-center"
+                >
+                  View More
+                </Button>
+              </Link>
+        </div>
+        
+      </section>
+
+      {/* //team// */}
+
+      <section className="py-16 bg-white overflow-hidden w-[90%] mx-auto flex flex-col items-center text-center">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+          >
+            Our Team
+          </motion.h2>
+
+          {/* Auto-sliding Organizations Carousel - Desktop only */}
+          <div className="relative hidden md:block overflow-hidden">
+            <motion.div
+              animate={{ x: [0, -100 * organizations.length] }}
+              transition={{
+                duration: 10,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+              className="flex space-x-4 "
+              // style={{ width: `${organizations.length * 200}px` }}
+            >
+              {[...team, ...team].map((tem, index) => (
+                <motion.div
+                  key={`${tem.name}-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1 * (index % organizations.length),
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="text-center flex-shrink-0 w-48"
+                >
+                  <div className="bg-gray-100 rounded-lg p-4 mb-3 w-[180px] h-[180px] flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                    <img
+                      src={tem.logo}
+                      alt={tem.name}
+                      width={160}
+                      height={160}
+                      className="object-contain w-[160px] h-[160px]"
+                    />
+                  </div>
+
+                  <h4 className="font-semibold text-gray-800 text-sm">
+                    {tem.name}
+                  </h4>
+                  
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Gradient overlays for smooth edges */}
+            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r  to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l  to-transparent z-10 pointer-events-none" />
+          </div>
+
+          {/* Static grid for mobile */}
+  <div className="md:hidden grid grid-cols-2 gap-6 mt-8">
+  {team.slice(0, 4).map((tem, index) => (
+    <motion.div
+      key={`mobile-${tem.name}-${index}`}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.1 * index }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+      className="text-center"
+    >
+      <div className="bg-gray-100 rounded-lg p-4 mb-3 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
+        <Image
+          src={tem.logo}
+          alt={tem.name}
+          width={60}
+          height={60}
+          className="mx-auto w-48 h-24"
+        />
+      </div>
+      <h4 className="font-semibold text-gray-800 text-sm">
+        {tem.name}
+      </h4>
+    </motion.div>
+  ))}
+</div>
+
+        </div>
+          <div className="flex justify-center mt-5">
+           <Link rel="stylesheet  justify-center" href="/about">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex justify-center"
+                >
+                  View More
+                </Button>
+              </Link>
+        </div>
+      </section>
+
       {/* Organizations Section */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden w-[52%] mx-auto flex flex-col items-center text-center ">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -514,7 +726,7 @@ export default function HomePage() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
-              className="flex space-x-4"
+              className="flex space-x-4 "
               // style={{ width: `${organizations.length * 200}px` }}
             >
               {[...organizations, ...organizations].map((org, index) => (
@@ -548,12 +760,12 @@ export default function HomePage() {
             </motion.div>
 
             {/* Gradient overlays for smooth edges */}
-            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r  to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l  to-transparent z-10 pointer-events-none" />
           </div>
 
           {/* Static grid for mobile */}
-          <div className="md:hidden grid grid-cols-2 gap-6 mt-8">
+          <div className="md:hidden grid grid-cols-2 gap-6 mt-8 ">
             {organizations.map((org, index) => (
               <motion.div
                 key={`mobile-${org.name}-${index}`}
@@ -564,13 +776,13 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="bg-gray-100 rounded-lg p-4 mb-3  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
+                <div className="bg-gray-100 rounded-lg p-6 mb-3 w-32  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
                   <Image
                     src={org.logo}
                     alt={org.name}
-                    width={60}
-                    height={60}
-                    className="mx-auto w-48 h-24"
+                    width={100}
+                    height={100}
+                    className="mx-auto w-96 h-24"
                   />
                 </div>
                 <h4 className="font-semibold text-gray-800 text-sm">
@@ -592,7 +804,42 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold mb-4">SYS Kerala</h3>
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "40px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    //  color: "#003E5E",
+                    color: "white",
+                    fontFamily: "Segoe UI",
+                    fontSize: "23px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
+              </Link>
               <p className="text-gray-400">
                 Sunni Yuvajana Samgam - Empowering youth through unity,
                 education, and social welfare.
@@ -680,17 +927,18 @@ export default function HomePage() {
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
                   <span className="text-gray-400 text-sm">
-                    SYS STATE COMMITTEE, Samatha centre, Jaffarkhan colony,
-                    Eranhipalam po, Kozhikode
+                    SYS Pttambi Zone Youth Square - Vadee Hassan Pattambi
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <span className="text-gray-400">0495 2771538</span>
+                  <Phone className="h-3 w-4" />
+                  <span className="text-gray-400">
+                    +919961292186 +919946410786 +919946693368
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
-                  <span className="text-gray-400">statesys@gmail.com</span>
+                  <span className="text-gray-400">syspattambi@gmail.com</span>
                 </div>
               </div>
             </motion.div>
