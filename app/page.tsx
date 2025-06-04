@@ -776,7 +776,7 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="bg-gray-100 rounded-lg p-6 mb-3 w-32  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
+                <div className="bg-gray-100 rounded-lg p-6 mb-3 w-20  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
                   <Image
                     src={org.logo}
                     alt={org.name}
