@@ -420,13 +420,14 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="space-x-4"
           >
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-white bg-blue-600 hover:bg-blu00 "
-            >
-              contact now
-            </Button>
+             <Link href="/Contact">
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    Contact Now
+                  </Button>
+                </Link>
           </motion.div>
         </div>
       </section>
