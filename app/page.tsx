@@ -680,7 +680,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* gallery */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -757,7 +756,7 @@ export default function HomePage() {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-800 mb-4 mt-8">
-               Our Cabinet
+                Our Cabinet
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Meet Our Leaders
@@ -1163,21 +1162,39 @@ export default function HomePage() {
             >
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
+                {/* Address */}
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
                   <span className="text-gray-400 text-sm">
-                    SYS Pttambi Zone Youth Square - Vadee Hassan Pattambi
+                    SYS Pattambi Zone Youth Square -<br></br> Vadee Hassan Pattambi
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-3 w-4" />
-                  <span className="text-gray-400">
-                    +919961292186 +919946410786 +919946693368
-                  </span>
+
+                {/* Phone Numbers (Clickable) */}
+                <div className="flex items-start space-x-2">
+                  <Phone className="h-3 w-4 mt-1" />
+                  <div className="flex flex-col space-y-1 text-sm text-gray-400 hover:text-white">
+                    <a href="tel:+919961292186" className="hover:underline">
+                      +91 99612 92186
+                    </a>
+                    <a href="tel:+919946410786" className="hover:underline">
+                      +91 99464 10786
+                    </a>
+                    <a href="tel:+919946693368" className="hover:underline">
+                      +91 99466 93368
+                    </a>
+                  </div>
                 </div>
+
+                {/* Email (Clickable) */}
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
-                  <span className="text-gray-400">syspattambi@gmail.com</span>
+                  <a
+                    href="mailto:syspattambi@gmail.com"
+                    className="text-gray-400 text-sm hover:text-white hover:underline"
+                  >
+                    syspattambi@gmail.com
+                  </a>
                 </div>
               </div>
             </motion.div>

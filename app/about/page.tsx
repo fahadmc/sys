@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Heart, BookOpen, Award, Target, Eye } from "lucide-react";
+import { Users, Heart, BookOpen, Award, Target, Eye, Mail, Phone, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -542,23 +542,48 @@ export default function AboutPage() {
               </ul>
             </motion.div>
 
-            <motion.div
+       <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <div className="space-y-2">
-                <p className="text-gray-400 text-sm">SYS STATE COMMITTEE</p>
-                <p className="text-gray-400 text-sm">
-                  Samatha centre, Jaffarkhan colony
-                </p>
-                <p className="text-gray-400 text-sm">
-                  Eranhipalam po, Kozhikode
-                </p>
-                <p className="text-gray-400">0495 2771538</p>
-                <p className="text-gray-400">statesys@gmail.com</p>
+              <div className="space-y-3">
+                {/* Address */}
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-4 w-4" />
+                  <span className="text-gray-400 text-sm">
+                    SYS Pattambi Zone Youth Square -<br></br> Vadee Hassan Pattambi
+                  </span>
+                </div>
+
+                {/* Phone Numbers (Clickable) */}
+                <div className="flex items-start space-x-2">
+                  <Phone className="h-3 w-4 mt-1" />
+                  <div className="flex flex-col space-y-1 text-sm text-gray-400 hover:text-white">
+                    <a href="tel:+919961292186" className="hover:underline">
+                      +91 99612 92186
+                    </a>
+                    <a href="tel:+919946410786" className="hover:underline">
+                      +91 99464 10786
+                    </a>
+                    <a href="tel:+919946693368" className="hover:underline">
+                      +91 99466 93368
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email (Clickable) */}
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <a
+                    href="mailto:syspattambi@gmail.com"
+                    className="text-gray-400 text-sm hover:text-white hover:underline"
+                  >
+                    syspattambi@gmail.com
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -426,7 +426,7 @@ const Team = () => {
                 </li>
                 <li>
                   <Link
-                    href="/terms"
+                    href="/Terms"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Terms & Conditions
@@ -434,7 +434,7 @@ const Team = () => {
                 </li>
                 <li>
                   <Link
-                    href="/refund"
+                    href="/Refund"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Refund Policy
@@ -444,28 +444,47 @@ const Team = () => {
             </motion.div>
 
             {/* Contact */}
-            <motion.div
+   <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <div className="space-y-3 text-sm text-gray-400">
+              <div className="space-y-3">
+                {/* Address */}
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
-                  <span>
-                    SYS STATE COMMITTEE, Samatha centre, Jaffarkhan colony,
-                    Eranhipalam PO, Kozhikode
+                  <span className="text-gray-400 text-sm">
+                    SYS Pattambi Zone Youth Square -<br></br> Vadee Hassan Pattambi
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <span>0495 2771538</span>
+
+                {/* Phone Numbers (Clickable) */}
+                <div className="flex items-start space-x-2">
+                  <Phone className="h-3 w-4 mt-1" />
+                  <div className="flex flex-col space-y-1 text-sm text-gray-400 hover:text-white">
+                    <a href="tel:+919961292186" className="hover:underline">
+                      +91 99612 92186
+                    </a>
+                    <a href="tel:+919946410786" className="hover:underline">
+                      +91 99464 10786
+                    </a>
+                    <a href="tel:+919946693368" className="hover:underline">
+                      +91 99466 93368
+                    </a>
+                  </div>
                 </div>
+
+                {/* Email (Clickable) */}
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
-                  <span>statesys@gmail.com</span>
+                  <a
+                    href="mailto:syspattambi@gmail.com"
+                    className="text-gray-400 text-sm hover:text-white hover:underline"
+                  >
+                    syspattambi@gmail.com
+                  </a>
                 </div>
               </div>
             </motion.div>
