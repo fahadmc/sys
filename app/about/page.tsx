@@ -67,16 +67,19 @@ const timeline = [
 
 export default function AboutPage() {
   const currentYear = new Date().getFullYear();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navLinks = [
-      { name: "Home", href: "/" },
-      { name: "About SYS", href: "/about" },
-      { name: "Contact", href: "/Contact" },
-    ];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About SYS", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Team", href: "/team" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/Contact" },
+  ];
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-           <motion.header
+      <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
@@ -91,26 +94,40 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-            <Link href="/" className=""style={{
-                display:"flex",
-                 alignItems:"center",
-                 gap:"15px",
-                 textDecoration:"none"
-              }}>
-                <h1 className=""style={{
-                  color: "#007AC2",
-                  fontFamily:"segoe UI",
-                  fontSize:"50px",
-                  margin:0,
-                  fontWeight:"bolder"
-                }}>SYS</h1>
-                <h2 className=""style={{
-                   color: "#003E5E",
-                   fontFamily: 'Segoe UI',
-                   fontSize:"34px",
-                   margin:0,
-                    fontWeight:"bolder"
-                }}>PATTAMBI</h2>
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "50px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    color: "#003E5E",
+                    fontFamily: "Segoe UI",
+                    fontSize: "34px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
               </Link>
             </motion.div>
 
@@ -162,7 +179,7 @@ export default function AboutPage() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
+      <section className="relative h-[50vh] bg-gradient-to-r from-blue-900/80 to-green-900/80 z-10 flex items-center justify-center">
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative text-center text-white max-w-4xl px-4">
           <motion.h1
@@ -302,7 +319,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <Card className="group h-full bg-blue-50 hover:bg-blue-600 hover:shadow-xl transition-all duration-300">
+                <Card className="group h-full bg-blue-50 hover:bg-gradient-to-r from-blue-900/80 to-green-900/80 hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-6 text-center">
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 10 }}
@@ -326,7 +343,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -372,10 +389,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-400 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-900/80 to-green-900/80 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -406,7 +423,7 @@ export default function AboutPage() {
             <Button
               size="lg"
               variant="secondary"
-              className="bg-white text-blue-600 hover:bg-gray-100"
+              className="text-white bg-blue-600 hover:bg-blu00 "
             >
               contact now
             </Button>
@@ -424,13 +441,50 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold mb-4">SYS Kerala</h3>
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "40px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    //  color: "#003E5E",
+                    color: "white",
+                    fontFamily: "Segoe UI",
+                    fontSize: "23px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
+              </Link>
               <p className="text-gray-400">
-                Sunni Yuvajana Samgam - Empowering youth through unity,
-                education, and social welfare.
+                Sunni Yuvajana Sangam is a vibrant movement dedicated to
+                nurturing the potential of youth. Through unity and shared
+                values, we create a strong foundation for personal and community
+                growth. Our focus on education equips the next generation with
+                knowledge and confidence.
               </p>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -439,30 +493,16 @@ export default function AboutPage() {
             >
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/Contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </motion.div>
 

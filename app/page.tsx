@@ -11,14 +11,17 @@ import {
   Phone,
   Mail,
   MapPin,
+  Calendar,
+  User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import image1 from "../public/bg_1.jpg";
 import image2 from "../public/bg_1.jpg";
 import image3 from "../public/bg_1.jpg";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const slides = [
   {
@@ -50,22 +53,94 @@ const gallery = [
   { id: 3, image: "/gl-4.jpg" },
 ];
 const team = [
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-   { name: "AP", logo: "/team-1.jpg"},
-  
-
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
+  { name: "AP", logo: "/team-1.jpg" },
 ];
 
+const teamMembers = [
+  {
+    id: 1,
+    name: "Dr. Abdul Rahman",
+    position: "Chief Scholar & Director",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Leading Islamic scholar with over 25 years of experience in education and community development.",
+    //   email: "abdul.rahman@syspattambi.org",
+    //   phone: "+91 9876543210",
+  },
+  {
+    id: 2,
+    name: "Maulana Yusuf Ali",
+    position: "Senior Religious Advisor",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Renowned religious teacher and author of several Islamic educational texts.",
+    //   email: "yusuf.ali@syspattambi.org",
+    //   phone: "+91 9876543211",
+  },
+  {
+    id: 3,
+    name: "Dr. Fatima Khatun",
+    position: "Education Coordinator",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "PhD in Islamic Studies, specializing in modern educational methodologies.",
+    //   email: "fatima.khatun@syspattambi.org",
+    //   phone: "+91 9876543212",
+  },
+  {
+    id: 4,
+    name: " Hassan Ahmed",
+    position: "Community Outreach Head",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Dedicated to community service and interfaith dialogue initiatives.",
+    //   email: "hassan.ahmed@syspattambi.org",
+    //   phone: "+91 9876543213",
+  },
+  {
+    id: 5,
+    name: "Dr. Zainab Begum",
+    position: "Women's Affairs Director",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Advocate for women's education and empowerment in Islamic communities.",
+    //   email: "zainab.begum@syspattambi.org",
+    //   phone: "+91 9876543214",
+  },
+  {
+    id: 6,
+    name: "Maulana Ibrahim Khan",
+    position: "Youth Development Head",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Passionate about youth engagement and modern Islamic education approaches.",
+    //   email: "ibrahim.khan@syspattambi.org",
+    //   phone: "+91 9876543215",
+  },
+  {
+    id: 7,
+    name: "Dr. Aisha Siddiqui",
+    position: "Research & Publications",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Leading researcher in Islamic jurisprudence and contemporary issues.",
+    //   email: "aisha.siddiqui@syspattambi.org",
+    //   phone: "+91 9876543216",
+  },
+  {
+    id: 8,
+    name: "Ustaz Omar Farooq",
+    position: "Training & Development",
+    image: "/placeholder.svg?height=200&width=200",
+    //   bio: "Expert in teacher training and curriculum development for Islamic education.",
+    //   email: "omar.farooq@syspattambi.org",
+    //   phone: "+91 9876543217",
+  },
+];
 const services = [
   {
     icon: Heart,
@@ -96,11 +171,73 @@ const organizations = [
   },
   { name: "Sunni Voice", logo: "/sunnivoice.png" },
 ];
-
+const blogPosts = [
+  {
+    id: 1,
+    title: "Education First: Transforming Lives Through Knowledge",
+    excerpt:
+      "Discover how our educational initiatives are creating opportunities for thousands of students across the community, fostering growth and development.",
+    author: "SYS Team",
+    date: "December 15, 2024",
+    category: "Education",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    id: 2,
+    title: "Charity and Relief Activities: Making a Difference",
+    excerpt:
+      "Supporting communities through various charitable initiatives and relief programs. Learn about our recent efforts and how you can contribute.",
+    author: "Relief Committee",
+    date: "December 12, 2024",
+    category: "Charity",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    id: 3,
+    title: "Santhwanath Volunteers: Building Stronger Communities",
+    excerpt:
+      "Dedicated volunteers working together for social welfare and community development. Discover the impact of our volunteer programs.",
+    author: "Volunteer Coordinator",
+    date: "December 10, 2024",
+    category: "Community",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    id: 4,
+    title: "Sunni Voice and Read Press: Spreading Knowledge",
+    excerpt:
+      "Publishing and media services to spread knowledge and awareness through various publications and digital platforms.",
+    author: "Editorial Team",
+    date: "December 8, 2024",
+    category: "Media",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    id: 5,
+    title: "Board School Exam Success Stories",
+    excerpt:
+      "Celebrating the achievements of our students in board examinations and highlighting the success of our educational programs.",
+    author: "Academic Team",
+    date: "December 5, 2024",
+    category: "Education",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    id: 6,
+    title: "Our Organizations: Unity in Diversity",
+    excerpt:
+      "Exploring the various organizations under our umbrella and how they work together to serve the community effectively.",
+    author: "SYS Leadership",
+    date: "December 3, 2024",
+    category: "Organization",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+];
 export default function HomePage() {
   const currentYear = new Date().getFullYear();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredPost, setHoveredPost] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -111,9 +248,11 @@ export default function HomePage() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About SYS", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Team", href: "/team" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/Contact" },
   ];
-
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
@@ -313,7 +452,7 @@ export default function HomePage() {
         {/* Slide Indicators */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
-            <button
+            <Button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide ? "bg-white" : "bg-white/50"
@@ -366,7 +505,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <Card className="group h-full transition-all duration-300 hover:bg-blue-500 hover:shadow-xl">
+                <Card className="group h-full transition-all duration-300 hover:bg-gradient-to-r from-blue-900/80 to-green-900/80 hover:shadow-xl">
                   <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -536,15 +675,13 @@ export default function HomePage() {
                   <div className="text-sm text-gray-600">Lives Touched</div>
                 </div>
               </motion.div> */}
-
-
-               
             </motion.div>
           </div>
         </div>
       </section>
 
-               {/* gallery */}
+
+      {/* gallery */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -554,7 +691,14 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
           >
-            Our Gallery
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4 mt-8">
+                Our Gallery
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Captured Moments
+              </p>
+            </div>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -570,7 +714,7 @@ export default function HomePage() {
                 <Card className="group h-full transition-all duration-300 hover:bg-blue-100 hover:shadow-xl">
                   <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
                     <motion.div
-                     whileHover={{ scale: 1.05, y: -5 }}
+                      whileHover={{ scale: 1.05, y: -5 }}
                       transition={{ duration: 0.3 }}
                       className="mb-6"
                     >
@@ -586,25 +730,24 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-          
         </div>
         <div className="flex justify-center mt-5">
-           <Link rel="stylesheet  justify-center" href="/about">
-                <Button
-                  size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex justify-center"
-                >
-                  View More
-                </Button>
-              </Link>
+          <Link rel="stylesheet  justify-center" href="/gallery">
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex justify-center"
+            >
+              View More
+            </Button>
+          </Link>
         </div>
-        
       </section>
 
       {/* //team// */}
 
-      <section className="py-16 bg-white overflow-hidden w-[90%] mx-auto flex flex-col items-center text-center">
+      <section className="py-20">
         <div className="container mx-auto px-4">
+          {/* Section Header */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -612,101 +755,95 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
           >
-            Our Team
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4 mt-8">
+               Our Cabinet
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Meet Our Leaders
+              </p>
+            </div>
           </motion.h2>
 
-          {/* Auto-sliding Organizations Carousel - Desktop only */}
-          <div className="relative hidden md:block overflow-hidden">
-            <motion.div
-              animate={{ x: [0, -100 * organizations.length] }}
-              transition={{
-                duration: 10,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }}
-              className="flex space-x-4 "
-              // style={{ width: `${organizations.length * 200}px` }}
-            >
-              {[...team, ...team].map((tem, index) => (
-                <motion.div
-                  key={`${tem.name}-${index}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.1 * (index % organizations.length),
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="text-center flex-shrink-0 w-48"
-                >
-                  <div className="bg-gray-100 rounded-lg p-4 mb-3 w-[180px] h-[180px] flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                    <img
-                      src={tem.logo}
-                      alt={tem.name}
-                      width={160}
-                      height={160}
-                      className="object-contain w-[160px] h-[160px]"
-                    />
-                  </div>
+          {/* Static 2-column grid for mobile, dynamic for larger screens */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {teamMembers.slice(0, 4).map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="group relative overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                  <CardContent className="p-0">
+                    {/* Image */}
+                    <div className="relative overflow-hidden">
+                      <div className="aspect-square relative">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  <h4 className="font-semibold text-gray-800 text-sm">
-                    {tem.name}
-                  </h4>
-                  
-                </motion.div>
-              ))}
-            </motion.div>
+                        {/* Social Icons */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                          <Button
+                            size="icon"
+                            className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                            aria-label={`Email ${member.name}`}
+                          >
+                            <Mail className="w-4 h-4" />
+                          </Button>
+                          <Button
+                            size="icon"
+                            className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                            aria-label={`Call ${member.name}`}
+                          >
+                            <Phone className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
 
-            {/* Gradient overlays for smooth edges */}
-            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r  to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l  to-transparent z-10 pointer-events-none" />
+                    {/* Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h3>
+                      <p className="text-blue-600 font-medium">
+                        {member.position}
+                      </p>
+                    </div>
+
+                    {/* Animated Border */}
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500 transition-colors duration-500 rounded-lg"></div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Static grid for mobile */}
-  <div className="md:hidden grid grid-cols-2 gap-6 mt-8">
-  {team.slice(0, 4).map((tem, index) => (
-    <motion.div
-      key={`mobile-${tem.name}-${index}`}
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 0.1 * index }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-      className="text-center"
-    >
-      <div className="bg-gray-100 rounded-lg p-4 mb-3 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
-        <Image
-          src={tem.logo}
-          alt={tem.name}
-          width={60}
-          height={60}
-          className="mx-auto w-48 h-24"
-        />
-      </div>
-      <h4 className="font-semibold text-gray-800 text-sm">
-        {tem.name}
-      </h4>
-    </motion.div>
-  ))}
-</div>
-
-        </div>
-          <div className="flex justify-center mt-5">
-           <Link rel="stylesheet  justify-center" href="/about">
-                <Button
-                  size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex justify-center"
-                >
-                  View More
-                </Button>
-              </Link>
+          {/* CTA Button */}
+          <div className="text-center mt-16">
+            <Link href="/team">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                View More Team
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Organizations Section */}
-      <section className="py-16 bg-white overflow-hidden w-[52%] mx-auto flex flex-col items-center text-center ">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-white overflow-hidden w-[60%] mx-auto flex flex-col items-center text-center ">
+        <div className=" px-12">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -776,13 +913,13 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="bg-gray-100 rounded-lg p-6 mb-3 w-20  hover:shadow-lg hover:shadow-blue-500/50  transition-all duration-300">
+                <div className="bg-gray-100 rounded-lg p-4 mb-3 w-full max-w-[180px] h-[180px] mx-auto flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
                   <Image
                     src={org.logo}
                     alt={org.name}
                     width={100}
                     height={100}
-                    className="mx-auto w-96 h-24"
+                    className="object-contain w-[100px] h-[100px]"
                   />
                 </div>
                 <h4 className="font-semibold text-gray-800 text-sm">
@@ -793,7 +930,120 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* blog////////// */}
+      <section className="container mx-auto px-4 pb-16">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4 mt-8">
+              Inspiring Stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Inspired by Resilience
+            </p>
+          </div>
+        </motion.h2>
+        <AnimatePresence>
+          <motion.div
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {blogPosts.slice(0, 3).map((post, index) => (
+              <motion.div
+                key={post.id}
+                layout
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10 }}
+                onHoverStart={() => setHoveredPost(post.id)}
+                onHoverEnd={() => setHoveredPost(null)}
+                className="group cursor-pointer"
+              >
+                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm">
+                  <CardHeader className="p-0 relative overflow-hidden">
+                    <motion.div
+                      className="relative h-48 overflow-hidden"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: hoveredPost === post.id ? 1 : 0 }}
+                        className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4"
+                      >
+                        <Badge
+                          variant="secondary"
+                          className="bg-white/90 text-gray-800"
+                        >
+                          {post.category}
+                        </Badge>
+                      </motion.div>
+                    </motion.div>
+                  </CardHeader>
 
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                      <div className="flex items-center gap-1">
+                        <User className="w-4 h-4" />
+                        <span>{post.author}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+
+                    <motion.h3
+                      className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300"
+                      whileHover={{ x: 5 }}
+                    >
+                      {post.title}
+                    </motion.h3>
+
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+
+                    {/* Optional: Add Read More button here if needed */}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+        >
+          <div className="text-center mt-16">
+            <Link href="/blog">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                View More
+              </Button>
+            </Link>
+          </div>
+        </motion.h2>
+      </section>
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
@@ -841,8 +1091,11 @@ export default function HomePage() {
                 </h2>
               </Link>
               <p className="text-gray-400">
-                Sunni Yuvajana Samgam - Empowering youth through unity,
-                education, and social welfare.
+                Sunni Yuvajana Sangam is a vibrant movement dedicated to
+                nurturing the potential of youth. Through unity and shared
+                values, we create a strong foundation for personal and community
+                growth. Our focus on education equips the next generation with
+                knowledge and confidence.
               </p>
             </motion.div>
 
@@ -854,30 +1107,16 @@ export default function HomePage() {
             >
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/Contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </motion.div>
 

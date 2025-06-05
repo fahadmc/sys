@@ -19,12 +19,15 @@ const fadeInUp = {
 
 const Terms = () => {
   const currentYear = new Date().getFullYear();
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
-             const navLinks = [
-               { name: "Home", href: "/" },
-               { name: "About SYS", href: "/about" },
-               { name: "Contact", href: "/Contact" },
-             ];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About SYS", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Team", href: "/team" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/Contact" },
+  ];
   const sections = [
     {
       title: "Terms and Conditions",
@@ -150,26 +153,40 @@ As long as the website and the information and services on the website are provi
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-             <Link href="/" className=""style={{
-                display:"flex",
-                 alignItems:"center",
-                 gap:"15px",
-                 textDecoration:"none"
-              }}>
-                <h1 className=""style={{
-                  color: "#007AC2",
-                  fontFamily:"segoe UI",
-                  fontSize:"50px",
-                  margin:0,
-                  fontWeight:"bolder"
-                }}>SYS</h1>
-                <h2 className=""style={{
-                   color: "#003E5E",
-                   fontFamily: 'Segoe UI',
-                   fontSize:"34px",
-                   margin:0,
-                    fontWeight:"bolder"
-                }}>PATTAMBI</h2>
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "50px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    color: "#003E5E",
+                    fontFamily: "Segoe UI",
+                    fontSize: "34px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
               </Link>
             </motion.div>
 
@@ -253,10 +270,48 @@ As long as the website and the information and services on the website are provi
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold mb-4">SYS Kerala</h3>
+              <Link
+                href="/"
+                className=""
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "15px",
+                  textDecoration: "none",
+                }}
+              >
+                <h1
+                  className=""
+                  style={{
+                    color: "#007AC2",
+                    fontFamily: "segoe UI",
+                    fontSize: "40px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  SYS
+                </h1>
+                <h2
+                  className=""
+                  style={{
+                    //  color: "#003E5E",
+                    color: "white",
+                    fontFamily: "Segoe UI",
+                    fontSize: "23px",
+                    margin: 0,
+                    fontWeight: "bolder",
+                  }}
+                >
+                  PATTAMBI
+                </h2>
+              </Link>
               <p className="text-gray-400">
-                Sunni Yuvajana Samgam - Empowering youth through unity,
-                education, and social welfare.
+                Sunni Yuvajana Sangam is a vibrant movement dedicated to
+                nurturing the potential of youth. Through unity and shared
+                values, we create a strong foundation for personal and community
+                growth. Our focus on education equips the next generation with
+                knowledge and confidence.
               </p>
             </motion.div>
 
@@ -269,30 +324,16 @@ As long as the website and the information and services on the website are provi
             >
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/Contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </motion.div>
 
@@ -368,7 +409,9 @@ As long as the website and the information and services on the website are provi
             viewport={{ once: true }}
             className="border-t border-gray-800 mt-8 pt-8 text-center"
           >
-            <p className="text-gray-400">Copyright ©{currentYear} All rights reserved</p>
+            <p className="text-gray-400">
+              Copyright ©{currentYear} All rights reserved
+            </p>
           </motion.div>
         </div>
       </footer>
