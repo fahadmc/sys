@@ -5,6 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import tm1 from "../../public/tm-1.jpg"
+import tm2 from "../../public/tm-2.jpg"
+import tm3 from "../../public/tm-3.jpg"
+import tm4 from "../../public/tm-4.jpg"
+import tm5 from "../../public/tm-5.jpg"
+import tm6 from "../../public/tm-6.jpg"
+import tm7 from "../../public/tm-7.jpg"
+import tm8 from "../../public/tm-8.jpg"
+import tm9 from "../../public/tm-9.jpg"
+import tm10 from "../../public/tm-10.jpg"
 import {
   Mail,
   Phone,
@@ -23,72 +33,90 @@ const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Dr. Abdul Rahman",
-      position: "Chief Scholar & Director",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Usman Saquafi kozhikkottiry",
+      position: "President",
+      image: tm6,
       //   bio: "Leading Islamic scholar with over 25 years of experience in education and community development.",
       //   email: "abdul.rahman@syspattambi.org",
       //   phone: "+91 9876543210",
     },
     {
       id: 2,
-      name: "Maulana Yusuf Ali",
-      position: "Senior Religious Advisor",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Yuha Rasheed Ashari al hikmi ",
+      position: "General Secretary",
+      image: tm1,
       //   bio: "Renowned religious teacher and author of several Islamic educational texts.",
       //   email: "yusuf.ali@syspattambi.org",
       //   phone: "+91 9876543211",
     },
     {
       id: 3,
-      name: "Dr. Fatima Khatun",
-      position: "Education Coordinator",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Thoufeeq Saquafi Shornoor",
+      position: "Organizing Section-President ",
+      image: tm9,
       //   bio: "PhD in Islamic Studies, specializing in modern educational methodologies.",
       //   email: "fatima.khatun@syspattambi.org",
       //   phone: "+91 9876543212",
     },
     {
       id: 4,
-      name: "Imam Hassan Ahmed",
-      position: "Community Outreach Head",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Fasal Rahman Pattambi",
+      position: "Organizing Section-Secretary",
+      image: tm3,
       //   bio: "Dedicated to community service and interfaith dialogue initiatives.",
       //   email: "hassan.ahmed@syspattambi.org",
       //   phone: "+91 9876543213",
     },
     {
       id: 5,
-      name: "Dr. Zainab Begum",
-      position: "Women's Affairs Director",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Ghafar Ansari Cherukudangad",
+      position: "Da'wa-President",
+      image: tm8,
       //   bio: "Advocate for women's education and empowerment in Islamic communities.",
       //   email: "zainab.begum@syspattambi.org",
       //   phone: "+91 9876543214",
     },
     {
       id: 6,
-      name: "Maulana Ibrahim Khan",
-      position: "Youth Development Head",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Twahir Ongallur ",
+      position: "Da'wa-Secretary",
+      image:tm4,
       //   bio: "Passionate about youth engagement and modern Islamic education approaches.",
       //   email: "ibrahim.khan@syspattambi.org",
       //   phone: "+91 9876543215",
     },
     {
       id: 7,
-      name: "Dr. Aisha Siddiqui",
-      position: "Research & Publications",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Marsooq Poyloor",
+      position: "Secretariat-Coordinator",
+      image: tm2,
       //   bio: "Leading researcher in Islamic jurisprudence and contemporary issues.",
       //   email: "aisha.siddiqui@syspattambi.org",
       //   phone: "+91 9876543216",
     },
     {
       id: 8,
-      name: "Ustaz Omar Farooq",
-      position: "Training & Development",
-      image: "/placeholder.svg?height=200&width=200",
+      name: "Nisamudheen Saquafi Pattambi",
+      position: "Secretariat-Coordinator",
+      image: tm5,
+      //   bio: "Expert in teacher training and curriculum development for Islamic education.",
+      //   email: "omar.farooq@syspattambi.org",
+      //   phone: "+91 9876543217",
+    },
+    {
+      id: 9,
+      name: "Sayyid Abdhul Basith Muthuthala",
+      position: "Cabinet Members",
+      image: tm10,
+      //   bio: "Expert in teacher training and curriculum development for Islamic education.",
+      //   email: "omar.farooq@syspattambi.org",
+      //   phone: "+91 9876543217",
+    },
+    {
+      id: 10,
+      name: "Muahammed Rafi Hafily Paathara Gate",
+      position: "Cabinet Members",
+      image: tm7,
       //   bio: "Expert in teacher training and curriculum development for Islamic education.",
       //   email: "omar.farooq@syspattambi.org",
       //   phone: "+91 9876543217",
@@ -252,7 +280,7 @@ const Team = () => {
                           src={member.image}
                           alt={member.name}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          className=" transition-transform duration-700 group-hover:scale-110"
                         />
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

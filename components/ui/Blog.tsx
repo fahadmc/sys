@@ -18,67 +18,74 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import bl1 from "../../public/education.jpg"
+import bl2 from "../../public/charity.jpg"
+import bl3 from "../../public/santhanam.jpg"
+import bl4 from "../../public/press.jpg"
+import bl5 from "../../public/school.jpg"
+import bl6 from "../../public/our-unit.jpg"
+
 
 const blogPosts = [
   {
     id: 1,
-    title: "Education First: Transforming Lives Through Knowledge",
+    title: "Empowering Excellence: Honoring Academic Milestones",
     excerpt:
-      "Discover how our educational initiatives are creating opportunities for thousands of students across the community, fostering growth and development.",
-    author: "SYS Team",
-    date: "December 15, 2024",
+      "Celebrating Dr. Sayid Abdul Basith’s remarkable academic journey, an inspiring symbol of dedication and intellect. His achievement is a beacon for the next generation to pursue knowledge with purpose and passion.",
+    // author: "SYS Team",
+    // date: "December 15, 2024",
     category: "Education",
-    image: "/placeholder.svg?height=300&width=500",
+    image:bl1,
   },
   {
     id: 2,
-    title: "Charity and Relief Activities: Making a Difference",
+    title: "Unity Through Reflection: Nurturing Minds and Hearts",
     excerpt:
-      "Supporting communities through various charitable initiatives and relief programs. Learn about our recent efforts and how you can contribute.",
-    author: "Relief Committee",
-    date: "December 12, 2024",
+      "Experience how the Pattambi Chapter's Thazkiya & Iftar Meet brings professionals together in a meaningful atmosphere of spiritual growth, brotherhood, and community empowerment.",
+    // author: "Relief Committee",
+    // date: "December 12, 2024",
     category: "Charity",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl2,
   },
   {
     id: 3,
-    title: "Santhwanath Volunteers: Building Stronger Communities",
+    title: "Faith & Fellowship: Building Stronger Communities",
     excerpt:
-      "Dedicated volunteers working together for social welfare and community development. Discover the impact of our volunteer programs.",
-    author: "Volunteer Coordinator",
-    date: "December 10, 2024",
+      "The Thazkiya & Iftar Meet of the Pattambi Chapter united professionals in reflection, spiritual growth, and collective inspiration — nurturing values that uplift individuals and communities alike.",
+    // author: "Volunteer Coordinator",
+    // date: "December 10, 2024",
     category: "Community",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl3,
   },
   {
     id: 4,
-    title: "Sunni Voice and Read Press: Spreading Knowledge",
+    title: "Awareness Through Education: Celebrating Nature and Knowledge",
     excerpt:
-      "Publishing and media services to spread knowledge and awareness through various publications and digital platforms.",
-    author: "Editorial Team",
-    date: "December 8, 2024",
+      "Bringing together students, scholars, and spiritual leaders, the National Bird Day event by Pattambi Zone Burs marked a meaningful step towards environmental awareness and values-based education.",
+    // author: "Editorial Team",
+    // date: "December 8, 2024",
     category: "Media",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl4,
   },
   {
     id: 5,
-    title: "Board School Exam Success Stories",
+    title: "Water is Life – SYS Refreshment Service",
     excerpt:
-      "Celebrating the achievements of our students in board examinations and highlighting the success of our educational programs.",
-    author: "Academic Team",
-    date: "December 5, 2024",
+      "Organized by the SYS Youth Council Pattambi, the water distribution event delivered not just cool drinks but a warm message of compassion and community service.",
+    // author: "Academic Team",
+    // date: "December 5, 2024",
     category: "Education",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl5,
   },
   {
     id: 6,
-    title: "Our Organizations: Unity in Diversity",
+    title: " Environment Campaign – A Greener Future Starts Today!",
     excerpt:
-      "Exploring the various organizations under our umbrella and how they work together to serve the community effectively.",
-    author: "SYS Leadership",
-    date: "December 3, 2024",
+      "From June 1–10, SYS Alathur Zone Committee organized impactful tree plantation drives as part of their green mission – protecting nature is protecting ourselves.",
+    // author: "SYS Leadership",
+    // date: "December 3, 2024",
     category: "Organization",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl6,
   },
 ];
 
@@ -284,7 +291,7 @@ export default function BlogPage() {
                         src={post.image}
                         alt={post.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-contain transition-transform duration-700 group-hover:scale-110"
                       />
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -304,11 +311,11 @@ export default function BlogPage() {
                     <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                       <div className="flex items-center gap-1">
                         <User className="w-4 h-4" />
-                        <span>{post.author}</span>
+                        {/* <span>{post.author}</span> */}
                       </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{post.date}</span>
+                        {/* <span>{post.date}</span> */}
                       </div>
                     </div>
 

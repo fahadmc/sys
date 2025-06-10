@@ -31,21 +31,13 @@ const Gallery = () => {
     { name: "Contact", href: "/Contact" },
   ];
   const gallery = [
-    { id: 1, image: "/gl-1.jpg" },
-    { id: 2, image: "/gl-2.jpg" },
-    { id: 3, image: "/gl-4.jpg" },
-    { id: 4, image: "/gl-1.jpg" },
-    { id: 5, image: "/gl-2.jpg" },
-    { id: 6, image: "/gl-4.jpg" },
-    { id: 7, image: "/gl-1.jpg" },
-    { id: 8, image: "/gl-2.jpg" },
-    { id: 9, image: "/gl-4.jpg" },
-    { id: 10, image: "/gl-1.jpg" },
-    { id: 11, image: "/gl-2.jpg" },
-    { id: 12, image: "/gl-4.jpg" },
-    { id: 13, image: "/gl-1.jpg" },
-    { id: 14, image: "/gl-2.jpg" },
-    { id: 15, image: "/gl-4.jpg" },
+    { id: 1, image: "/gl1.jpg" },
+    { id: 2, image: "/gl2.jpg" },
+    { id: 3, image: "/gl3.jpg" },
+    { id: 4, image: "/gl4.jpg" },
+    { id: 5, image: "/gl5.jpg" },
+    { id: 6, image: "/gl6.jpg" },
+ 
   ];
 
   return (
@@ -211,19 +203,23 @@ const Gallery = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <Card className="group h-full transition-all duration-300 hover:bg-blue-100 hover:shadow-xl">
-                  <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
+                <Card className="group h-full transition-all duration-300 hover:bg-gradient-to-r from-blue-900/80 to-green-900/20 hover:shadow-xl">
+                
+                       <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
                     <motion.div
                       whileHover={{ scale: 1.05, y: -5 }}
                       transition={{ duration: 0.3 }}
                       className="mb-6"
                     >
-                      <Image
-                        src={item.image}
-                        alt={`Gallery image ${item.id}`}
-                        width={400}
-                        height={250}
-                      />
+                      <div className="w-[400px] h-[300px] mx-auto overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={`Gallery image ${item.id}`}
+                          width={300}
+                          height={200}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
                     </motion.div>
                   </CardContent>
                 </Card>

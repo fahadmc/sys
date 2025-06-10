@@ -286,7 +286,7 @@ export default function AboutPage() {
               className="relative"
             >
               <Image
-                src="/hq720.jpg"
+                src="/slider-1.jpg"
                 alt="Our Mission and Vision"
                 width={600}
                 height={500}

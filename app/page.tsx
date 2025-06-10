@@ -17,12 +17,21 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import image1 from "../public/bg_1.jpg";
-import image2 from "../public/bg_1.jpg";
-import image3 from "../public/bg_1.jpg";
+import image1 from "../public/slider-1.jpg";
+import image2 from "../public/slider-1.jpg";
+import image3 from "../public/slider-1.jpg";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import tm1 from "../public/tm-1.jpg";
+import tm6 from "../public/tm-6.jpg";
 
+import tm9 from "../public/tm-9.jpg";
+
+import tm3 from "../public/tm-3.jpg";
+
+import bl1 from "../public/press.jpg";
+import bl2 from "../public/charity.jpg";
+import bl3 from "../public/santhanam.jpg";
 const slides = [
   {
     id: 1,
@@ -48,97 +57,47 @@ const slides = [
   },
 ];
 const gallery = [
-  { id: 1, image: "/gl-1.jpg" },
-  { id: 2, image: "/gl-2.jpg" },
-  { id: 3, image: "/gl-4.jpg" },
-];
-const team = [
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
-  { name: "AP", logo: "/team-1.jpg" },
+  { id: 1, image: "/gl1.jpg" },
+  { id: 2, image: "/gl2.jpg" },
+  { id: 4, image: "/gl4.jpg" },
 ];
 
 const teamMembers = [
   {
     id: 1,
-    name: "Dr. Abdul Rahman",
-    position: "Chief Scholar & Director",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Usman Saquafi kozhikkottiry",
+    position: "President",
+    image: tm6,
     //   bio: "Leading Islamic scholar with over 25 years of experience in education and community development.",
     //   email: "abdul.rahman@syspattambi.org",
     //   phone: "+91 9876543210",
   },
   {
     id: 2,
-    name: "Maulana Yusuf Ali",
-    position: "Senior Religious Advisor",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Yuha Rasheed Ashari al hikmi ",
+    position: "General Secretary",
+    image: tm1,
     //   bio: "Renowned religious teacher and author of several Islamic educational texts.",
     //   email: "yusuf.ali@syspattambi.org",
     //   phone: "+91 9876543211",
   },
   {
     id: 3,
-    name: "Dr. Fatima Khatun",
-    position: "Education Coordinator",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Thoufeeq Saquafi Shornoor",
+    position: "Organizing Section-President ",
+    image: tm9,
     //   bio: "PhD in Islamic Studies, specializing in modern educational methodologies.",
     //   email: "fatima.khatun@syspattambi.org",
     //   phone: "+91 9876543212",
   },
   {
     id: 4,
-    name: " Hassan Ahmed",
-    position: "Community Outreach Head",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Fasal Rahman Pattambi",
+    position: "Organizing Section-Secretary",
+    image: tm3,
     //   bio: "Dedicated to community service and interfaith dialogue initiatives.",
     //   email: "hassan.ahmed@syspattambi.org",
     //   phone: "+91 9876543213",
-  },
-  {
-    id: 5,
-    name: "Dr. Zainab Begum",
-    position: "Women's Affairs Director",
-    image: "/placeholder.svg?height=200&width=200",
-    //   bio: "Advocate for women's education and empowerment in Islamic communities.",
-    //   email: "zainab.begum@syspattambi.org",
-    //   phone: "+91 9876543214",
-  },
-  {
-    id: 6,
-    name: "Maulana Ibrahim Khan",
-    position: "Youth Development Head",
-    image: "/placeholder.svg?height=200&width=200",
-    //   bio: "Passionate about youth engagement and modern Islamic education approaches.",
-    //   email: "ibrahim.khan@syspattambi.org",
-    //   phone: "+91 9876543215",
-  },
-  {
-    id: 7,
-    name: "Dr. Aisha Siddiqui",
-    position: "Research & Publications",
-    image: "/placeholder.svg?height=200&width=200",
-    //   bio: "Leading researcher in Islamic jurisprudence and contemporary issues.",
-    //   email: "aisha.siddiqui@syspattambi.org",
-    //   phone: "+91 9876543216",
-  },
-  {
-    id: 8,
-    name: "Ustaz Omar Farooq",
-    position: "Training & Development",
-    image: "/placeholder.svg?height=200&width=200",
-    //   bio: "Expert in teacher training and curriculum development for Islamic education.",
-    //   email: "omar.farooq@syspattambi.org",
-    //   phone: "+91 9876543217",
   },
 ];
 const services = [
@@ -174,63 +133,33 @@ const organizations = [
 const blogPosts = [
   {
     id: 1,
-    title: "Education First: Transforming Lives Through Knowledge",
+    title: "Awareness Through Education: Celebrating Nature and Knowledge",
     excerpt:
-      "Discover how our educational initiatives are creating opportunities for thousands of students across the community, fostering growth and development.",
-    author: "SYS Team",
-    date: "December 15, 2024",
+      "Bringing together students, scholars, and spiritual leaders, the National Bird Day event by Pattambi Zone Burs marked a meaningful step towards environmental awareness and values-based education.",
+    // date: "December 15, 2024",
     category: "Education",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl1,
   },
+
   {
     id: 2,
-    title: "Charity and Relief Activities: Making a Difference",
+    title: "Unity Through Reflection: Nurturing Minds and Hearts",
     excerpt:
-      "Supporting communities through various charitable initiatives and relief programs. Learn about our recent efforts and how you can contribute.",
-    author: "Relief Committee",
-    date: "December 12, 2024",
+      "Experience how the Pattambi Chapter's Thazkiya & Iftar Meet brings professionals together in a meaningful atmosphere of spiritual growth, brotherhood, and community empowerment.",
+    // author: "Relief Committee",
+    // date: "December 12, 2024",
     category: "Charity",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl2,
   },
   {
     id: 3,
-    title: "Santhwanath Volunteers: Building Stronger Communities",
+    title: "Faith & Fellowship: Building Stronger Communities",
     excerpt:
-      "Dedicated volunteers working together for social welfare and community development. Discover the impact of our volunteer programs.",
-    author: "Volunteer Coordinator",
-    date: "December 10, 2024",
+      "The Thazkiya & Iftar Meet of the Pattambi Chapter united professionals in reflection, spiritual growth, and collective inspiration — nurturing values that uplift individuals and communities alike.",
+    // author: "Volunteer Coordinator",
+    // date: "December 10, 2024",
     category: "Community",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    id: 4,
-    title: "Sunni Voice and Read Press: Spreading Knowledge",
-    excerpt:
-      "Publishing and media services to spread knowledge and awareness through various publications and digital platforms.",
-    author: "Editorial Team",
-    date: "December 8, 2024",
-    category: "Media",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    id: 5,
-    title: "Board School Exam Success Stories",
-    excerpt:
-      "Celebrating the achievements of our students in board examinations and highlighting the success of our educational programs.",
-    author: "Academic Team",
-    date: "December 5, 2024",
-    category: "Education",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    id: 6,
-    title: "Our Organizations: Unity in Diversity",
-    excerpt:
-      "Exploring the various organizations under our umbrella and how they work together to serve the community effectively.",
-    author: "SYS Leadership",
-    date: "December 3, 2024",
-    category: "Organization",
-    image: "/placeholder.svg?height=300&width=500",
+    image: bl3,
   },
 ];
 export default function HomePage() {
@@ -613,14 +542,14 @@ export default function HomePage() {
                   className="space-y-4"
                 >
                   <Image
-                    src="/hq720.jpg"
+                    src="/slider-1.jpg"
                     alt="SYS Community Work"
                     width={300}
                     height={200}
                     className="rounded-lg shadow-lg"
                   />
                   <Image
-                    src="/sys-manava-sancharam2-400x225.jpg"
+                    src="/charity.jpg"
                     alt="SYS Education Programs"
                     width={300}
                     height={300}
@@ -633,7 +562,7 @@ export default function HomePage() {
                   className="space-y-4 pt-8"
                 >
                   <Image
-                    src="/sys.jpg"
+                    src="/school.jpg"
                     alt="SYS Youth Activities"
                     width={300}
                     height={150}
@@ -710,7 +639,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <Card className="group h-full transition-all duration-300 hover:bg-blue-100 hover:shadow-xl">
+                <Card className="group h-full transition-all duration-300 hover:bg-gradient-to-r from-blue-900/80 to-green-900/20 hover:shadow-xl">
                   <CardContent className="p-8 text-center text-black group-hover:text-white transition-colors duration-300">
                     <motion.div
                       whileHover={{ scale: 1.05, y: -5 }}
@@ -783,7 +712,7 @@ export default function HomePage() {
                           src={member.image}
                           alt={member.name}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          className=" transition-transform duration-700 group-hover:scale-110"
                         />
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -976,7 +905,7 @@ export default function HomePage() {
                         src={post.image}
                         alt={post.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-contain transition-transform duration-700 group-hover:scale-110"
                       />
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -1166,7 +1095,8 @@ export default function HomePage() {
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
                   <span className="text-gray-400 text-sm">
-                    SYS Pattambi Zone Youth Square -<br></br> Vadee Hassan Pattambi
+                    SYS Pattambi Zone Youth Square -<br></br> Vadee Hassan
+                    Pattambi
                   </span>
                 </div>
 
